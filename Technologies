@@ -1,0 +1,30 @@
+
+
+HTML are markup languages, basically they are set of tags like <html>, <body>, which is used to present a website using css, and javascript as a whole. All these, happen in the clients system or the user you will be browsing the website.
+
+Now, Connecting to a database, happens on whole another level. It happens on server, which is where the website is hosted.
+
+So, in order to connect to the database and perform various data related actions, you have to use server-side scripts, like php, jsp, asp.net etc.
+
+Now, lets see a snippet of connection using MYSQLi Extension of PHP
+
+$db = mysqli_connect('hostname','username','password','databasename');
+
+This single line code, is enough to get you started, you can mix such code, combined with HTML tags to create a HTML page, which is show data based pages. For example:
+
+<?php
+    $db = mysqli_connect('hostname','username','password','databasename');
+?>
+<html>
+    <body>
+          <?php
+                $query = "SELECT * FROM `mytable`;";
+                $result = mysqli_query($db, $query);
+                while($row = mysqli_fetch_assoc($result)) {
+                      // Display your datas on the page
+                }
+          ?>
+    </body>
+</html>
+
+In order to insert new data into the database, you can use phpMyAdmin or write a INSERT query and execute them.
